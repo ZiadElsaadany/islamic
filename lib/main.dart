@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+
 import 'package:islami/controller/apis/api_salahTiming.dart';
 import 'package:islami/controller/provider/azkar_provider.dart';
 import 'package:islami/controller/provider/doaa_provider.dart';
@@ -15,6 +17,7 @@ import 'package:islami/view/home/sebha/sebha_screen.dart';
 import 'package:islami/view/home/zakah_count/screen.dart';
 import 'package:islami/view/splash/splash_screen.dart';
 import 'package:provider/provider.dart';
+
 void main ( )  {
   runApp(
       MultiProvider(
@@ -40,15 +43,18 @@ void main ( )  {
               return PrayingApi() ;
             }) ,
       ],
-      child: const IslamyApp())
+      child:  IslamyApp())
   ) ;
 }
-class IslamyApp extends StatelessWidget {
-  const IslamyApp({Key? key}) : super(key: key);
 
-  @override
+
+
+
+class IslamyApp extends StatelessWidget {
+
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.id,
       routes:   {

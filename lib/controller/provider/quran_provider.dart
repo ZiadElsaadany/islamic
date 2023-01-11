@@ -8,6 +8,8 @@ import '../../constants/data.dart';
 class KoranProvider extends ChangeNotifier {
   List<Map<String, dynamic>> lst = [];
 bool search =false;
+  bool view = true;
+  bool statusOfMushafView = true;
   Map<String, Map<String, dynamic>> lstSearch = {};
 
   getNameOfKoran({required String word}) {
@@ -40,4 +42,11 @@ bool search =false;
       notifyListeners();
     }
   }
+
+
+  changeView( bool check1)  {
+    view = check1 ;
+    notifyListeners() ;
+  }
+
 }

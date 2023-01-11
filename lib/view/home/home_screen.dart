@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:islami/controller/provider/quran_provider.dart';
-import 'package:islami/view/home/asmaa_Allah/asmaa_allah_screen.dart';
 import 'package:islami/view/home/azkar/all_azkar_screen.dart';
 import 'package:islami/view/home/doaa/doaa_screen.dart';
 import 'package:islami/view/home/home_card.dart';
-import 'package:islami/view/home/koran/surah_name_screen.dart';
+
 import 'package:islami/view/home/salah_timing/salah_timing_screen.dart';
 import 'package:islami/view/home/sebha/sebha_screen.dart';
 import 'package:islami/view/home/zakah_count/screen.dart';
 import 'package:provider/provider.dart';
 import '../../constants/data.dart';
+import 'koran/quran/index_page.dart';
+import 'koran/quran/my_drawer.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
   static const String id = 'home';
@@ -42,7 +43,14 @@ class _HomeScreenState extends State<HomeScreen> {
               height: double.infinity,
             ),
             Scaffold(
+              drawer: const MyDrawer(),
+
               backgroundColor: Colors.transparent,
+              appBar: AppBar (
+                backgroundColor: Colors.transparent,
+                elevation: 0 ,
+                foregroundColor: Colors.black,
+              ),
               body: Padding(
                 padding: EdgeInsets.symmetric(
                     vertical: 5.0,
@@ -163,7 +171,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   fun(index, context, {required bool from}) {
     if (index == 0&&from) {
-      Navigator.pushNamed(context, SurahNameScreen.id);
+      Navigator.push(context,MaterialPageRoute(builder:
+      (ctx) {
+        return const IndexPage();
+      }
+      ));
     } else if (index == 0&&!from) {
       Navigator.pushNamed(context, AllAzkarScreen.id);
     } else if (index == 1&&from) {

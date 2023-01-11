@@ -11,7 +11,8 @@ class MyDoaa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
+      child: Column
+        (
 
         children: [
           Padding(
@@ -22,82 +23,58 @@ class MyDoaa extends StatelessWidget {
             ) ,
             child: Row(
               children: [
-                Container(
-                  padding: EdgeInsets.all(4),
-                  decoration:BoxDecoration(
-                  borderRadius: BorderRadius.circular(MediaQuery.of(context).size.height*0.03),
-                  border: Border.all(color: AppColorsConstant.primaryColor)
-                ),
-                  // alignment: Alignment.centerRight,
-                  child: GestureDetector(
-                    child: Icon(
-                     Icons.add,
-                      color: AppColorsConstant.primaryColor,
+                GestureDetector(
+                  child: Icon(
+                   Icons.add,
+                    color: AppColorsConstant.primaryColor,
 
-                    ),
-                    onTap: (){
-                      showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: false,
-                        backgroundColor: Colors.transparent,
-                        builder: (context) {
-                          return GestureDetector(
-                            onTap: () => Navigator.of(context).pop(),
-                            child: Container(
-                              color: Color.fromRGBO(0, 0, 0, 0.001),
-                              child: GestureDetector(
-                                onTap: () {},
-                                child: DraggableScrollableSheet(
-                                  initialChildSize: 0.8,
-                                  minChildSize: 0.8,
-                                  maxChildSize: 0.8,
-                                  builder: (_, controller) {
-                                    return Container(
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: const Radius.circular(25.0),
-                                          topRight: const Radius.circular(25.0),
-                                        ),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          Icon(
-                                            Icons.remove,
-                                            color: Colors.grey[600],
-                                          ),
-                                          Expanded(
-                                            child: ListView(
-                                            controller: controller,
-                                              children: [
-                                               Text('اضافة دعاء جديد' ,
-                                               style: AppStyleConstant.style20WithBlackColor,
-                                                 textAlign: TextAlign.center,
-                                               ),
-                                                Text('اسم الدعاء'),
-                                                TextFormField(
-                                                  maxLines: 1,
-                                                ),
-                                                Text('كلمات الدعاء'),
-                                                TextFormField(
-                                                  maxLines: 4,
-                                                ),
+                  ),
+                  onTap: (){
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      // backgroundColor: Colors.transparent,
+                      builder: (context) {
+                        return GestureDetector(
+                          onTap: () => Navigator.of(context).pop(),
+                          child: Container(
+                            color: Color.fromRGBO(0, 0, 0, 0.001),
+                            child: GestureDetector(
+                              onTap: () {},
+                              child: Padding(
+                                padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+                                child: SingleChildScrollView(
 
-                                              ],
-                                            ),
-                                          ),
-                                        ],
+                                  child: Column(
+                                    children: [
+                                      Icon(
+                                        Icons.remove,
+                                        color: Colors.grey[600],
                                       ),
-                                    );
-                                  },
+                                      Text('اضافة دعاء جديد' ,
+                                      style: AppStyleConstant.style20WithBlackColor,
+                                        textAlign: TextAlign.center,
+                                      ),
+                                       Text('اسم الدعاء'),
+                                       TextFormField(
+                                         maxLines: 1,
+                                       ),
+                                       Text('كلمات الدعاء'),
+                                       TextFormField(
+                                         maxLines: 3,
+textDirection: TextDirection.rtl,
+
+                                       ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          );
-                        },
-                      );
-                    },
-                  ),
+                          ),
+                        );
+                      },
+                    );
+                  },
                 ),
               ],
             ),

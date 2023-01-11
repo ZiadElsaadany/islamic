@@ -30,6 +30,7 @@ static const String id= 'doaa';
           Directionality(
             textDirection: TextDirection.rtl,
             child: Scaffold(
+              resizeToAvoidBottomInset: false,
 backgroundColor: Colors.transparent,
               appBar: AppBar(
                 title: Text(
