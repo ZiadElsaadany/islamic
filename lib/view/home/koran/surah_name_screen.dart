@@ -15,7 +15,7 @@ class SurahNameScreen extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset(
-            ImageConstant.bg2,
+            ImageConstant.bg,
             fit: BoxFit.fill,
             width: double.infinity,
             height: double.infinity,
@@ -23,34 +23,21 @@ class SurahNameScreen extends StatelessWidget {
           Directionality(
             textDirection: TextDirection.rtl,
             child: Scaffold(
+              appBar: AppBar(
+                foregroundColor: AppColorsConstant.black,
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+              ),
               backgroundColor: Colors.transparent,
               body: Padding(
                 padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.05,
                   right: MediaQuery.of(context).size.width * 0.04,
                   left: MediaQuery.of(context).size.width * 0.04,
                 ),
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height*0.05,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        IconButton(
-                          icon: const Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.black,
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ],
-                    ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: TextFormField(
                         onChanged: (value) {
                           Provider.of<KoranProvider>(context, listen: false)
@@ -60,33 +47,34 @@ class SurahNameScreen extends StatelessWidget {
                           iconColor: Colors.black,
                           icon: const Icon(Icons.search,
                           color: AppColorsConstant.primaryColor,
-                            size: 40,
+                            size: 30,
                           ),
 
-                          hintText: 'ابحث عن السورة التي تريدها...',
-                          hintStyle:  TextStyle(
-                            color: AppColorsConstant.primaryColor.withOpacity(0.8),
-                            fontWeight: FontWeight.bold,
+                          hintText: 'ابحث   عن   السورة   التي   تريدها...',
+                          hintStyle:  const TextStyle(
+                            color: AppColorsConstant.grey,
+                            // fontWeight: FontWeight.bold,
+                            fontFamily: 'me_quran.ttf',
                             fontSize: 14,
                           ),
                          // suffixIcon: const Icon(Icons.search,
                          //      size: 30, color: AppColorsConstant.primaryColor),
                           enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(20),
                               borderSide: const BorderSide(
                                 color: AppColorsConstant.grey,
                               )),
                           focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(20),
                               borderSide: const BorderSide(
                                 color: AppColorsConstant.primaryColor,
                               )),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
-                    ),
+                    // SizedBox(
+                    //   height: MediaQuery.of(context).size.height * 0.02,
+                    // ),
                     !Provider.of<KoranProvider>(context).search
                         ? Expanded(
                             child: Directionality(
@@ -97,10 +85,10 @@ class SurahNameScreen extends StatelessWidget {
                                   height: 8,
                                 ),
                                 physics: const BouncingScrollPhysics(),
-                                itemCount: Sowar.sowar['sowar']!.length,
+                                itemCount: 114,
                                 itemBuilder: (ctx, index) => GestureDetector(
                                   onTap: () {
-                                    Navigator.pushReplacement(context,
+                                    Navigator.push(context,
                                         MaterialPageRoute(builder: (ctx) {
                                       return KoranScreen(indx: index);
                                     }));
@@ -129,7 +117,7 @@ class SurahNameScreen extends StatelessWidget {
                                   itemCount: provider.lst.length,
                                   itemBuilder: (ctx, index) => GestureDetector(
                                     onTap: () {
-                                      Navigator.pushReplacement(context,
+                                      Navigator.push(context,
                                           MaterialPageRoute(builder: (ctx) {
                                         return KoranScreen(indx:
                                         provider.lst[index]['verses'][0]['surah_number']-1
@@ -137,7 +125,7 @@ class SurahNameScreen extends StatelessWidget {
                                       }));
                                     },
                                     child: SurahNameDisplay(
-                                      index: provider.lst[index]['index'],
+                                      index: provider.lst[index]['verses'][0]['surah_number'],
                                       num: provider.lst[index]['ayat'],
                                       place: provider.lst[index]['place'],
                                       surahName: provider.lst[index]['name'],

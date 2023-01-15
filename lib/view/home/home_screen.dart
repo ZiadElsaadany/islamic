@@ -3,6 +3,7 @@ import 'package:islami/controller/provider/quran_provider.dart';
 import 'package:islami/view/home/azkar/all_azkar_screen.dart';
 import 'package:islami/view/home/doaa/doaa_screen.dart';
 import 'package:islami/view/home/home_card.dart';
+import 'package:islami/view/home/koran/koran_display_screen.dart';
 
 import 'package:islami/view/home/salah_timing/salah_timing_screen.dart';
 import 'package:islami/view/home/sebha/sebha_screen.dart';
@@ -11,6 +12,7 @@ import 'package:provider/provider.dart';
 import '../../constants/data.dart';
 import 'koran/quran/index_page.dart';
 import 'koran/quran/my_drawer.dart';
+import 'koran/surah_name_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
   static const String id = 'home';
@@ -171,11 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   fun(index, context, {required bool from}) {
     if (index == 0&&from) {
-      Navigator.push(context,MaterialPageRoute(builder:
-      (ctx) {
-        return const IndexPage();
-      }
-      ));
+      Navigator.pushNamed(context, SurahNameScreen.id);
     } else if (index == 0&&!from) {
       Navigator.pushNamed(context, AllAzkarScreen.id);
     } else if (index == 1&&from) {

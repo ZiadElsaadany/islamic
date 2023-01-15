@@ -8,7 +8,9 @@ class AppStyleConstant {
   static  TextStyle  style24WithPrimaryColor=GoogleFonts.alata(
     color: AppColorsConstant.primaryColor,
     fontSize:  24 ,
-    fontWeight: FontWeight.bold
+
+    fontWeight: FontWeight.bold,
+
 
   );
   static  TextStyle  style18WithPrimaryColor=GoogleFonts.aladin(

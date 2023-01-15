@@ -52,7 +52,6 @@ backgroundColor: Colors.transparent,
                     ),
 
                     Provider.of<DoaaProvider>(context).checkClick?
-
                     Expanded(
                   child: GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

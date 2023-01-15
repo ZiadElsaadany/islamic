@@ -90,12 +90,16 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: quran
+    - family: HafsSmart_08.ttf
       fonts:
         - asset: assets/fonts/HafsSmart_08.ttf
     - family: me_quran.ttf
       fonts:
         - asset: assets/fonts/me_quran.ttf
+    - family: cairo
+      fonts:
+        - asset: assets/fonts/Cairo-VariableFont_slnt,wght.ttf
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

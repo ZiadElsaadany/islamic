@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:islami/view/home/koran/quran/arabic_number_converter.dart';
+import 'package:islami/view/home/koran/quran/arabic_surah_number.dart';
 
 import '../../../constants/color_constant.dart';
 import '../../../constants/sowar.dart';
@@ -10,49 +13,56 @@ final int index1 ;
 final int index2 ;
   @override
   Widget build(BuildContext context) {
-    return  Directionality(
-      textDirection: TextDirection.rtl,
-      child: Container(
+    return     Positioned(
+      bottom: 0,
+      top: -1,
+      child: Text.rich(
+          textDirection: TextDirection.rtl,
 
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey,width: 0.3) ,
-            borderRadius: BorderRadius.circular(10)
-        ),
-        padding: EdgeInsets.all(MediaQuery.of(context).size.height*0.03),
-        child: Column(
+          textAlign: TextAlign.center,
+          TextSpan(
+            children: [
+              TextSpan( text: '  ${ Sowar.sowar['sowar']![index1]['verses'][index2]['content']}   ',
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontFamily: 'me_quran.ttf',
+                  color: Color.fromARGB(196, 0, 0, 0),
+                ),
+              ) ,
+              WidgetSpan(child:   Stack(
+                alignment: Alignment.center,
+                children: [
+                  ArabicSurahNumber(i:Sowar.sowar['sowar']![index1]['verses'][index2]['verse_number'] ),
+                  const Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan( text: ' ۝ ', style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            fontFamily: 'me_quran.ttf',
 
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+                            color: AppColorsConstant.primaryColor
+                            // color: Color.fromARGB(196, 0, 0, 0),
+                          ),) ,
 
-                Expanded(
-                  child: Text(' آية ${Sowar.sowar['sowar']![index1]['verses'][index2]['verse_number']}' ,
-                    style: AppStyleConstant.style15WithPrimaryColorAndBold,
+                        ],
+
+                      )
+
+
                   ),
-                ),
-                SizedBox( width: 10,) ,
-                Icon(Icons.star,
-                  color: AppColorsConstant.primaryColor,
-                ),
-                Icon(Icons.save,
-                  color: AppColorsConstant.primaryColor,
-                ),
-              ],
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-            Text(
-              ' ${ Sowar.sowar['sowar']![index1]['verses'][index2]['content']}  {${ Sowar.sowar['sowar']![index1]['verses'][index2]['verse_number']}}' ,
-              style: TextStyle(
-                  fontSize: 22,
+                ],
+              ))
 
-                  letterSpacing: 0.5,
-                  wordSpacing: 10
-              ),
-            ),
-          ],
-        ),
+            ],
+
+          )
+
+
       ),
-    );
+    ) ;
+
+
+
   }
 }

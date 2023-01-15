@@ -14,49 +14,73 @@ class KoranScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Stack(
-        children: [
-          Image.asset(
-            ImageConstant.bg2,
-            fit: BoxFit.fill,
-            width: double.infinity,
-            height: double.infinity,
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Scaffold(
+
+          appBar: AppBar(
+
+            foregroundColor: AppColorsConstant.black,
+            backgroundColor: Colors.white,
+            elevation: 0,
+            title: Text('  سورة${Sowar.sowar['sowar']![indx]['name']}',
+
+                style:const TextStyle(
+                  fontSize: 22,
+                  letterSpacing: 0.5,
+                  fontWeight: FontWeight.w500 ,
+                  fontFamily: 'HafsSmart_08.ttf',
+
+                )),
+            centerTitle: true,
+            // toolbarHeight: MediaQuery.of(context).size.height * 0.1,
           ),
-          Directionality(
-            textDirection: TextDirection.rtl,
-            child: Scaffold(
-              appBar: AppBar(
-                foregroundColor: AppColorsConstant.black,
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                title: Text(' سورة ${Sowar.sowar['sowar']![indx]['name']}',
-                    style: AppStyleConstant.style24WithBlackColor),
-                centerTitle: true,
-                toolbarHeight: MediaQuery.of(context).size.height * 0.2,
-              ),
-              backgroundColor: Colors.transparent,
-              body: Padding(
-                padding:
-                EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height*0.02),
-                child: ListView.separated(
+          backgroundColor: const Color.fromARGB(255, 253, 247, 230),
+          body: Padding(
+            padding:
+            EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height*0.02),
+            child: Column(
+              children: [
+                 indx!= 0 && indx!= 8
+                    ?const Center(
+                  child: Text(
+                    'بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ ',
+                    style: TextStyle(
+                      fontFamily: 'me_quran.ttf',
+                      fontSize: 22,
+                      color: Colors.grey
+                    ),
+                    textDirection: TextDirection.rtl,
+                  ),
+                ):  const Text(""),
 
-                   addAutomaticKeepAlives: true,
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: ListView.separated(
 
-                  separatorBuilder: (ctx, index) {
-                    return const Divider(
-                      color: AppColorsConstant.primaryColor,
-                      thickness: 1,
-                    );
-                  },
-                  itemBuilder: (ctx, index) {
-                    return KoranWidget(index1: indx, index2: index);
-                  },
-                  itemCount: Sowar.sowar['sowar']![indx]['verses'].length,
+                       // addAutomaticKeepAlives: true,
+             physics: const BouncingScrollPhysics(),
+                      separatorBuilder: (ctx, index) {
+                        return  SizedBox(
+                        height: MediaQuery.of(context).size.height*0.04,
+                        );
+                      },
+                      itemBuilder: (ctx, index) {
+                        return Container(
+                            color: index % 2 == 0
+                                ? const Color.fromARGB(255, 253, 251, 240)
+                                : const Color.fromARGB(255, 253, 247, 230),
+                            child: KoranWidget(index1: indx, index2: index));
+                      },
+                      itemCount: Sowar.sowar['sowar']![indx]['verses'].length,
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

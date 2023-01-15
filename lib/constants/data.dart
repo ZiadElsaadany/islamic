@@ -4,7 +4,7 @@ import 'package:islami/constants/color_constant.dart';
 class Data {
   static const List<Map> imagesForHome1 = [
     {
-      'name': 'القران الكريم',
+      'name': 'القرآن الكريم',
       'img': 'assets/icons/koran.png'
 
       // 0
@@ -25,16 +25,7 @@ class Data {
       'img': 'assets/images/salah_time.jpg', //6
     },
 
-    {
-      'name': 'الراديو',
-      'img': 'assets/images/radio.png', // 8
-    },
 
-  
-    {
-      'name' : 'حساب زكاتك',
-      'img' : ''
-    }
   ];
   static const List<Map> imagesForHome2 = [
     {
@@ -56,14 +47,8 @@ class Data {
       'img': 'assets/images/kaaba.jpg', // 7
     },
 
-    {
-      'name': 'الرقية الشرعية',
-      'img': 'assets/images/roqia_images/roq.jpg' //9
-    },
 
-    {'name': 'ادعمني', 'img': '',
-
-    }, // 11
+    // 11
   ];
 
 //   static const List txtForAzkar = [

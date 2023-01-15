@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islami/constants/color_constant.dart';
 import 'package:islami/constants/style_constant.dart';
 
 class HomeCard extends StatelessWidget {
@@ -26,7 +25,12 @@ final String txt ;
           Expanded(
             flex: 2,
             child: Text(txt ,
-          style:AppStyleConstant.style18WithPrimaryColor
+          style:AppStyleConstant.style18WithPrimaryColor.copyWith(
+            fontFamily: 'cairo',
+            fontSize: 17,
+            color: Colors.black.withOpacity(0.4),
+            fontWeight: FontWeight.w600
+          ),
           ) ,
 
           ) ,

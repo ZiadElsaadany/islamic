@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islami/view/home/koran/quran/arabic_number_converter.dart';
+import 'package:islami/view/home/koran/quran/arabic_surah_number.dart';
 
 import '../../../constants/color_constant.dart';
 import '../../../constants/images_constant.dart';
@@ -27,20 +29,15 @@ final int index ;
            Stack(
              alignment: Alignment.center,
              children: [
-               const ImageIcon(
-             AssetImage(ImageConstant.itar,
-             ),
-                 size: 50,
-                 color: AppColorsConstant.primaryColor,
 
-               ),
-               Text('$index',
-                   style: TextStyle(
-                       color: AppColorsConstant.grey,
-                       fontWeight: FontWeight.bold,
-                       fontSize: MediaQuery.of(context).size.height*0.009
-                   )
-               ) ,
+             Image.asset(ImageConstant.itar,
+                 height: MediaQuery.of(context).size.height*0.1,
+                 color: AppColorsConstant.primaryColor,
+             ),
+
+
+
+               ArabicSurahNumber(i:index ),
              ],
            ),
 
@@ -52,14 +49,23 @@ final int index ;
                 Text(
                   ' سورة $surahName',style: TextStyle (
 
-                  color: AppColorsConstant.black.withOpacity(0.8),
-                  fontSize: MediaQuery.of(context).size.height*0.025
+                  color: AppColorsConstant.black.withOpacity(0.5),
+                  fontSize: MediaQuery.of(context).size.height*0.025,
+                  fontWeight: FontWeight.w300,
+                  fontFamily: 'me_quran.ttf',
                 ),),
                 // SizedBox(height:2,),
-                Text( 'ايات  $num' ,
+
+
+                Text( '  آيـــات   ${num.toString().toArabicNumbers}   ' ,
+textDirection: TextDirection.rtl,
                   style: const TextStyle(
                     color: AppColorsConstant.grey,
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.bold,
+                    // fontFamily: 'me_quran.ttf',
+                    fontSize: 14
+
+
                   ),
                 ),
                 const SizedBox(height: 5,),
@@ -68,6 +74,7 @@ final int index ;
             ) ,
             const Spacer(flex: 3,),
             Text( place , style: const TextStyle(
+                fontFamily: 'me_quran.ttf',
               color: AppColorsConstant.primaryColor,
               fontWeight: FontWeight.bold,
               fontSize: 14
