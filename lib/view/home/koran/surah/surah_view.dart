@@ -19,12 +19,12 @@ class SurahView extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
           appBar:CustomAppBar(
-            widget: Text('  سورة${Sowar.sowar['sowar']![indx]['name']}',
+            widget: Text('  سورة ${Sowar.sowar['sowar']![indx]['name']}',
                 style:const TextStyle(
-                  fontSize: 22,
+                  fontSize: 20,
                   letterSpacing: 0.5,
                   fontWeight: FontWeight.w500 ,
-                  fontFamily: 'HafsSmart_08.ttf',
+
 
                 )),
           ),

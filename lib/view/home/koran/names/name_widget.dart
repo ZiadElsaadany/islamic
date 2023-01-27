@@ -50,8 +50,7 @@ final int index ;
 
                   color: AppColorsConstant.black.withOpacity(0.5),
                   fontSize: MediaQuery.of(context).size.height*0.025,
-                  fontWeight: FontWeight.w300,
-                  fontFamily: 'me_quran.ttf',
+                  fontWeight: FontWeight.bold,
                 ),),
                 // SizedBox(height:2,),
 
