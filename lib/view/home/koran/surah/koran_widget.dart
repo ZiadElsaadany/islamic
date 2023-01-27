@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
-import '../../../constants/color_constant.dart';
-import '../../../constants/sowar.dart';
-import '../../../constants/style_constant.dart';
-import 'arabic_surah_number.dart';
+import '../../../../constants/color_constant.dart';
+import '../../../../constants/sowar.dart';
+import '../../../../constants/style_constant.dart';
+import '../arabic_surah_number.dart';
 
 class KoranWidget extends StatelessWidget {
   const KoranWidget({Key? key,required this.index1,required this.index2}) : super(key: key);

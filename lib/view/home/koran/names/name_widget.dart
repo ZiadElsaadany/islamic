@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami/view/home/koran/arabic_number_converter.dart';
-import '../../../constants/color_constant.dart';
-import '../../../constants/images_constant.dart';
-import 'arabic_surah_number.dart';
+import '../../../../constants/color_constant.dart';
+import '../../../../constants/images_constant.dart';
+import '../arabic_surah_number.dart';
 
 class SurahNameDisplay extends StatelessWidget {
   const SurahNameDisplay({Key? key,required this.num,required this.place,required this.surahName,required this.index}) : super(key: key);

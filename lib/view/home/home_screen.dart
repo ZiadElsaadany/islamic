@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
         textDirection: TextDirection.rtl,
         child: Stack(
           children: [
-            const ReturnImage(),
+            const ReturnImage( img :'assets/images/bg3.png'),
             Scaffold(
               backgroundColor: Colors.transparent,
               body: Padding(

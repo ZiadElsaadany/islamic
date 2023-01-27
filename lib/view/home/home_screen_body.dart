@@ -9,7 +9,7 @@ import '../../controller/provider/quran_provider.dart';
 import 'azkar/all_azkar_screen.dart';
 import 'doaa/doaa_screen.dart';
 import 'home_card.dart';
-import 'koran/surah_name_screen.dart';
+import 'koran/names/names_view.dart';
 
 class CustomHomeScreenBody extends StatelessWidget {
   const CustomHomeScreenBody({Key? key}) : super(key: key);

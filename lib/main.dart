@@ -11,7 +11,7 @@ import 'package:islami/view/home/azkar/all_azkar_screen.dart';
 import 'package:islami/view/home/azkar/azkar_details_screen.dart';
 import 'package:islami/view/home/doaa/doaa_screen.dart';
 import 'package:islami/view/home/home_screen.dart';
-import 'package:islami/view/home/koran/surah_name_screen.dart';
+import 'package:islami/view/home/koran/names/names_view.dart';
 import 'package:islami/view/home/salah_timing/salah_timing_screen.dart';
 import 'package:islami/view/home/sebha/sebha_screen.dart';
 import 'package:islami/view/home/zakah_count/screen.dart';
@@ -54,7 +54,9 @@ class IslamyApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return MaterialApp(
-
+theme: ThemeData (
+  fontFamily: 'cairo'
+),
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.id,
       routes:   {
