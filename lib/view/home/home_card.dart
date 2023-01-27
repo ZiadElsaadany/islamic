@@ -21,7 +21,7 @@ final String txt ;
               flex:3,
               child: Image.asset(img)) ,
 
-          Spacer(),
+          const Spacer(),
           Expanded(
             flex: 2,
             child: Text(txt ,
@@ -34,7 +34,7 @@ final String txt ;
           ) ,
 
           ) ,
-          SizedBox(height: 5,),
+          const SizedBox(height: 5,),
         ],
       ),
     );

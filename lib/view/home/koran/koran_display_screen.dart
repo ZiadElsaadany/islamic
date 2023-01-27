@@ -1,9 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'package:islami/constants/color_constant.dart';
-import 'package:islami/constants/style_constant.dart';
+
 import 'package:islami/view/home/koran/koran_widget.dart';
 
-import '../../../constants/images_constant.dart';
 import '../../../constants/sowar.dart';
 
 class KoranScreen extends StatelessWidget {
@@ -13,11 +13,10 @@ class KoranScreen extends StatelessWidget {
   List<String> content = [];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Directionality(
-        textDirection: TextDirection.rtl,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: SafeArea(
         child: Scaffold(
-
           appBar: AppBar(
 
             foregroundColor: AppColorsConstant.black,
@@ -39,45 +38,44 @@ class KoranScreen extends StatelessWidget {
           body: Padding(
             padding:
             EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height*0.02),
-            child: Column(
-              children: [
-                 indx!= 0 && indx!= 8
-                    ?const Center(
-                  child: Text(
-                    'بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ ',
-                    style: TextStyle(
-                      fontFamily: 'me_quran.ttf',
-                      fontSize: 22,
-                      color: Colors.grey
-                    ),
-                    textDirection: TextDirection.rtl,
-                  ),
-                ):  const Text(""),
+            child: ListView.separated(
 
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: ListView.separated(
-
-                       // addAutomaticKeepAlives: true,
              physics: const BouncingScrollPhysics(),
-                      separatorBuilder: (ctx, index) {
-                        return  SizedBox(
-                        height: MediaQuery.of(context).size.height*0.04,
-                        );
-                      },
-                      itemBuilder: (ctx, index) {
-                        return Container(
-                            color: index % 2 == 0
-                                ? const Color.fromARGB(255, 253, 251, 240)
-                                : const Color.fromARGB(255, 253, 247, 230),
-                            child: KoranWidget(index1: indx, index2: index));
-                      },
-                      itemCount: Sowar.sowar['sowar']![indx]['verses'].length,
+              separatorBuilder: (ctx, index) {
+                return  SizedBox(
+                height: MediaQuery.of(context).size.height*0.04,
+                );
+              },
+              itemBuilder: (ctx, index) {
+                return     indx!= 0 && indx!= 8 &&index==0?
+                    Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+           const Center(
+                      child: Text(
+                        'بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ ',
+                        style: TextStyle(
+                            fontFamily: 'me_quran.ttf',
+                            fontSize: 22,
+                            color: Colors.grey
+                        ),
+                        textDirection: TextDirection.rtl,
+                      ),
                     ),
-                  ),
-                ),
-              ],
+                    Container(
+                        color: index % 2 == 0
+                            ? const Color.fromARGB(255, 253, 251, 240)
+                            : const Color.fromARGB(255, 253, 247, 230),
+                        child: KoranWidget(index1: indx, index2: index))
+                  ],
+                ) : Container(
+                    color: index % 2 == 0
+                        ? const Color.fromARGB(255, 253, 251, 240)
+                        : const Color.fromARGB(255, 253, 247, 230),
+                    child: KoranWidget(index1: indx, index2: index));
+              },
+              itemCount: Sowar.sowar['sowar']![indx]['verses'].length,
             ),
           ),
         ),

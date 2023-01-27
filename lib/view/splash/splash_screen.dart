@@ -1,9 +1,8 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/constants/color_constant.dart';
-
+import 'package:islami/constants/style_constant.dart';
 import '../../constants/images_constant.dart';
 import '../home/home_screen.dart';
 
@@ -54,21 +53,25 @@ class _SplashScreenState extends State<SplashScreen> {
              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Spacer(
+                  const Spacer(
                     flex: 4,
                   ),
                   Image.asset(ImageConstant.logo,
                   width: MediaQuery.of(context).size.width*0.5,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-                  CircularProgressIndicator(
+                  const CircularProgressIndicator(
                     color: AppColorsConstant.primaryColor,
                   ),
-                  Spacer(flex: 3,),
+                  const Spacer(flex: 3,),
                   Text('Developed By Ziad Al-saadany' ,
-                  style: GoogleFonts.share(),
+
+                  style: AppStyleConstant.style14WithBlackColor.copyWith(
+                    fontSize: 16 ,
+                    fontFamily: 'cairo'
                   ),
-                  Spacer(flex: 1,),
+                  ),
+                  const Spacer(flex: 1,),
 
                 ],
               ),
