@@ -98,6 +98,9 @@ flutter:
     - family: cairo
       fonts:
         - asset: assets/fonts/Cairo-VariableFont_slnt,wght.ttf
+    - family: AmiriQuran-Regular.ttf
+      fonts:
+        - asset: assets/fonts/AmiriQuran-Regular.ttf
 
   #
   # For details regarding fonts from package dependencies,

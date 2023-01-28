@@ -6,15 +6,19 @@ import 'package:islami/controller/provider/doaa_provider.dart';
 import 'package:islami/view/home/doaa/doaa_card.dart';
 import 'package:islami/view/home/doaa/switch_widget.dart';
 import 'package:provider/provider.dart';
-
-import '../../../constants/data.dart';
 import '../../../constants/images_constant.dart';
 import '../../../constants/style_constant.dart';
 import 'my_doaa/my_doaa_screen.dart';
 
-class DoaaScreen extends StatelessWidget {
-   DoaaScreen({Key? key}) : super(key: key);
+class DoaaScreen extends StatefulWidget {
+  const  DoaaScreen({Key? key}) : super(key: key);
 static const String id= 'doaa';
+
+  @override
+  State<DoaaScreen> createState() => _DoaaScreenState();
+}
+
+class _DoaaScreenState extends State<DoaaScreen> {
    double num  = 1.2;
 
   @override
@@ -46,7 +50,7 @@ backgroundColor: Colors.transparent,
               body: Center(
                 child: Column(
                   children: [
-                    SwitchWidget(),
+                    const SwitchWidget(),
                     SizedBox(
                       height: MediaQuery.of(context).size.height*0.03,
                     ),
@@ -54,7 +58,7 @@ backgroundColor: Colors.transparent,
                     Provider.of<DoaaProvider>(context).checkClick?
                     Expanded(
                   child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3 ,
                       ),
                       physics: const BouncingScrollPhysics(),
@@ -72,8 +76,7 @@ backgroundColor: Colors.transparent,
                             onTap: ( )  {
                               AwesomeDialog(
 
-// buttonsTextStyle: AppStyleConstant.style18WithPrimaryColor,
-//                           barrierColor: Colors.red,
+
 
                                   buttonsBorderRadius: BorderRadius.circular(30),
                                   borderSide: const BorderSide (
@@ -120,7 +123,7 @@ backgroundColor: Colors.transparent,
                               child: DoaaCard(index: index,),
                             )))  ;
                       })
-                ) : MyDoaa()
+                ) : const MyDoaa()
                   ],
                 ),
               ),
@@ -130,5 +133,4 @@ backgroundColor: Colors.transparent,
       ),
     );
   }
-
 }

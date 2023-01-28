@@ -10,6 +10,8 @@ class AzkarProvider  extends ChangeNotifier {
 
   List azkarList =
   [
+
+
     {
       "name": "اذكار الصباح ",
       'image': ImageConstant.azkarSabah,

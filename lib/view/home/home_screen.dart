@@ -41,7 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   headerSliverBuilder:
                       (BuildContext context, bool innerBoxIsScrolled) {
                     return <Widget>[
-                    const CustomSliverAppBar()
+                     CustomSliverAppBar(
+                      widget:  Image.asset('assets/images/Screenshot (1).png'),
+                    )
                     ];
                   },)
 

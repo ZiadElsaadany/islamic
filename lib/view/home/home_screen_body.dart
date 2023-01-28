@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 
 import '../../constants/data.dart';
 import '../../controller/provider/quran_provider.dart';
-import 'azkar/all_azkar_screen.dart';
-import 'doaa/doaa_screen.dart';
+import 'azkar/azkar_names/azkar_view.dart';
+import 'doaa/doaa_view.dart';
 import 'home_card.dart';
 import 'koran/names/names_view.dart';
 
