@@ -1,5 +1,7 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:islami/constants/color_constant.dart';
 
 import 'package:islami/controller/apis/api_salahTiming.dart';
 import 'package:islami/controller/provider/azkar_provider.dart';
@@ -13,7 +15,7 @@ import 'package:islami/view/home/doaa/doaa_screen.dart';
 import 'package:islami/view/home/home_screen.dart';
 import 'package:islami/view/home/koran/names/names_view.dart';
 import 'package:islami/view/home/salah_timing/salah_timing_screen.dart';
-import 'package:islami/view/home/sebha/sebha_screen.dart';
+import 'package:islami/view/home/sebha/sebha_view.dart';
 import 'package:islami/view/home/zakah_count/screen.dart';
 import 'package:islami/view/splash/splash_screen.dart';
 import 'package:provider/provider.dart';
@@ -55,7 +57,9 @@ class IslamyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 theme: ThemeData (
-  fontFamily: 'cairo'
+  fontFamily: 'cairo',
+  brightness: Brightness.light,
+  primaryColor: AppColorsConstant.primaryColor
 ),
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.id,
