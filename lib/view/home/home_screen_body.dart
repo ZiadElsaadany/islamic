@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami/view/home/salah_timing/salah_timing_screen.dart';
+import 'package:islami/view/home/salah_timing/salah_timing_view.dart';
 import 'package:islami/view/home/sebha/sebha_view.dart';
 import 'package:islami/view/home/zakah_count/screen.dart';
 import 'package:provider/provider.dart';

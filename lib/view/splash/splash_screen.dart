@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/constants/color_constant.dart';
 import 'package:islami/constants/style_constant.dart';
 import '../../constants/images_constant.dart';

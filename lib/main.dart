@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/constants/color_constant.dart';
 
@@ -14,7 +13,7 @@ import 'package:islami/view/home/azkar/zekr_details/azkar_details_view.dart';
 import 'package:islami/view/home/doaa/doaa_view.dart';
 import 'package:islami/view/home/home_screen.dart';
 import 'package:islami/view/home/koran/names/names_view.dart';
-import 'package:islami/view/home/salah_timing/salah_timing_screen.dart';
+import 'package:islami/view/home/salah_timing/salah_timing_view.dart';
 import 'package:islami/view/home/sebha/sebha_view.dart';
 import 'package:islami/view/home/zakah_count/screen.dart';
 import 'package:islami/view/splash/splash_screen.dart';
@@ -67,13 +66,13 @@ theme: ThemeData (
 HomeScreen.id:(ctx) =>const HomeScreen( ),
         SurahNameScreen.id : (ctx)=>const SurahNameScreen() ,
 AllAzkarScreen.id : (ctx) =>const AllAzkarScreen() ,
-        AzkarDetailsScreen.id:(ctx)=>AzkarDetailsScreen(),
+        AzkarDetailsScreen.id:(ctx)=>const AzkarDetailsScreen(),
         SebhaScreen.id:(ctx)=>const SebhaScreen() ,
-        DoaaScreen.id:(ctx) =>DoaaScreen(),
+        DoaaScreen.id:(ctx) =>const DoaaScreen(),
         AsmaaAllahScreen.id:(ctx)=>const AsmaaAllahScreen(),
         SalahTimingScreen.id:(ctx)=>const SalahTimingScreen(),
         ZakatCount.id:(ctx)=> const ZakatCount(),
-        SplashScreen.id:(ctx)=> SplashScreen()
+        SplashScreen.id:(ctx)=> const SplashScreen()
       },
     );
   }

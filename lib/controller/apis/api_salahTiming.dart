@@ -9,7 +9,6 @@ import '../../view/shared/toast.dart';
 class PrayingApi extends ChangeNotifier {
 bool isGetTime = false;
 String ?  timeOfSalah;
-int  hourOfNextSalah  = 0   ;
 int ? minuteOfNextSalah    ;
 PrayingTimeModel  ? salahTime ;
 Map  jsonRes = { };
@@ -18,6 +17,9 @@ List<int> lstSalahMinute = [ ];
 
    getTimeApi ( )  async{
       try {
+        lstSalahHours= [] ;
+        lstSalahMinute =[ ];
+
          isGetTime =true;
          notifyListeners();
          http.Response res = await http.get(
@@ -25,7 +27,6 @@ List<int> lstSalahMinute = [ ];
                  'http://api.aladhan.com/v1/timingsByCity?city=tanta&country=Egypt&method=8')
          );
          if(res.statusCode== 200 ) {
-            print (json.decode(res.body)) ;
           salahTime =   PrayingTimeModel.frmojson(json.decode(res.body));
           jsonRes= json.decode(res.body) ;
           lstSalahHours.addAll([
@@ -36,14 +37,12 @@ List<int> lstSalahMinute = [ ];
             int.parse(  salahTime!.isha!.split(":")[0] )
           ]);
           lstSalahMinute.addAll([
-
-            int.parse(salahTime!.fajr!.split(":")[1]),
+              int.parse(salahTime!.fajr!.split(":")[1]),
             int.parse(  salahTime!.dhuhr!.split(":")[1] ) ,
             int.parse(  salahTime!.asr!.split(":")[1] )  ,
             int.parse(  salahTime!.maghrib!.split(":")[1] ),
             int.parse(  salahTime!.isha!.split(":")[1] )
           ] );
-          print (lstSalahHours);
 
             isGetTime= false;
             notifyListeners() ;
@@ -56,40 +55,80 @@ Shared.returnToast('لا يوجد اتصال بالانترنت')   ;
          notifyListeners() ;
       }
       catch (E) {
-         print (E.toString()) ;
          Shared.returnToast('حدثت مشكلة ما بالرجاء اعادة المحاولة')   ;
       notifyListeners()  ;
       }
-
-
-
-
    }
 
    getPrayingName (  )  {
-   if( DateTime.now().hour <  lstSalahHours[0]  ) {
-     timeOfSalah =  salahTime!.fajr;
+   if( DateTime.now().hour <=  lstSalahHours[0]   ) {
+     if(DateTime.now().hour== lstSalahHours[0]){
+       if ( DateTime.now().minute>lstSalahMinute[0]){
+         timeOfSalah =  salahTime!.dhuhr;
+         return 'الظهر' ;
+       }else{
+         timeOfSalah =  salahTime!.fajr;
+       }
+     }
+
+     else {
+       timeOfSalah =  salahTime!.fajr;
+     }
        return 'الفجر';
+       //  // 5             20
 
-   } else if( DateTime.now().hour <  lstSalahHours[1]  )  {
+   }
 
 
+   else if( DateTime.now().hour <=lstSalahHours[1]  )  {
 
+     if(DateTime.now().hour == lstSalahHours[1] ){
+       if(DateTime.now().minute > lstSalahMinute[1]){
+         timeOfSalah = salahTime!.asr ;
+         return 'العصر' ;
+       }
+     }
      timeOfSalah =  salahTime!.dhuhr;
      return 'الظهر';
    }
-   else if( DateTime.now().hour < lstSalahHours[2]  )  {
 
 
+   else if( DateTime.now().hour <= lstSalahHours[2]  )  {
 
+      if(DateTime.now().hour == lstSalahHours[2]){
+        if(DateTime.now().minute > lstSalahMinute[2]) {
+          timeOfSalah = salahTime!.maghrib ;
+          return 'المغرب' ;
+        }
+      }
      timeOfSalah =  salahTime!.asr;
      return 'العصر';
-   }else if( DateTime.now().hour < lstSalahHours[3] )  {
+   }
 
+
+   else if( DateTime.now().hour <= lstSalahHours[3] )  {
+
+
+    if(DateTime.now().hour == lstSalahHours[3]) {
+      if(DateTime.now().minute >  lstSalahMinute[3]){
+        timeOfSalah = salahTime!.isha;
+        return 'العشاء' ;
+      }
+    }
 
      timeOfSalah =  salahTime!.maghrib;
      return 'المغرب';
-   }else if( DateTime.now().hour < lstSalahHours[4] )  {
+   }
+
+
+   else if( DateTime.now().hour <=  lstSalahHours[4] )  {
+
+     if(DateTime.now().hour == lstSalahHours[4]) {
+       if(DateTime.now().minute>  lstSalahMinute[4]){
+         timeOfSalah = salahTime!.fajr;
+         return 'الفجر' ;
+       }
+     }
 
      timeOfSalah =  salahTime!.isha;
      return 'العشاء';
@@ -100,14 +139,7 @@ Shared.returnToast('لا يوجد اتصال بالانترنت')   ;
    }
    }
 
-    timeForNextPrayingFun ( int hourForNextSalah) {
-     int num = 24 -  DateTime.now().hour  ;
 
-      // hourOfNextSalah = num + hourOfNextSalah;
-     // notifyListeners() ;
-   }
-
-notifyListeners();
 
 
 }
