@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/constants/color_constant.dart';
 import 'package:islami/view/home/salah_timing/salah_timing_view.dart';
 import 'package:islami/view/home/sebha/sebha_view.dart';
 import 'package:islami/view/home/zakah_count/screen.dart';
@@ -40,8 +41,7 @@ class CustomHomeScreenBody extends StatelessWidget {
                   MediaQuery.of(context).size.width * 0.5 -
                       (MediaQuery.of(context).size.width *
                           0.04),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(20),
+                  child: GestureDetector(
                     onTap: () {
                       Provider.of<KoranProvider>(context,
                           listen: false)
@@ -81,8 +81,7 @@ class CustomHomeScreenBody extends StatelessWidget {
                   MediaQuery.of(context).size.width * 0.5 -
                       (MediaQuery.of(context).size.width *
                           0.04),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(20),
+                  child: GestureDetector(
 
                     onTap: () {
                       Provider.of<KoranProvider>(context,

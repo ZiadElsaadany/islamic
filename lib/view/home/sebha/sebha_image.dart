@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/constants/color_constant.dart';
 import 'package:provider/provider.dart';
 
 import '../../../animation/fade_animation.dart';
@@ -11,11 +12,12 @@ class SebhaImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  FadeAnimation(1.3, child:
     Stack(
-      alignment: Alignment.topCenter,
+      alignment: Alignment.center,
       children: [
-        const Image(
-          image: AssetImage("assets/images/sebha_images/head of seb7a.png"),
-        ),
+ Positioned
+  (
+    bottom: MediaQuery.of(context).size.height*0.14,
+    child: const Icon(Icons.fingerprint_sharp, size: 40, color: AppColorsConstant.grey)),
         Container(
           padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.1),
           child: GestureDetector(

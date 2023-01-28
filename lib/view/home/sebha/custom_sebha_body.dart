@@ -16,7 +16,7 @@ class CustomSebhaBody extends StatelessWidget {
       child: ListView(
         children: [
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
          const SebhaImage(),
           SizedBox(height: MediaQuery.of(context).size.height*0.02,),
